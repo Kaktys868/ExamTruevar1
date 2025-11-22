@@ -9,9 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PogodaAdapter extends RecyclerView.Adapter {
     public ArrayList<Pogoda> Pogodas;
+    public int n;
 
     public PogodaAdapter(ArrayList<Pogoda> Pogodas){
         this.Pogodas = Pogodas;
@@ -30,7 +32,7 @@ public class PogodaAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 7;
+        return Pogodas.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -40,8 +42,12 @@ public class PogodaAdapter extends RecyclerView.Adapter {
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             day = itemView.findViewById(R.id.Day);
+            day.setText(Pogodas.get(n).Day);
             grad = itemView.findViewById(R.id.Grad);
+            grad.setText(Pogodas.get(n).Grad.toString());
             weather = itemView.findViewById(R.id.Weather);
+            weather.setText(Pogodas.get(n).Weather);
+            n++;
         }
     }
 }
