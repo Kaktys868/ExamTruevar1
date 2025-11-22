@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class PogodaAdapter extends RecyclerView.Adapter<PogodaAdapter>.ViewHolder {
+public class PogodaAdapter extends RecyclerView.Adapter {
     public ArrayList<Pogoda> Pogodas;
 
     public PogodaAdapter(ArrayList<Pogoda> Pogodas){
@@ -18,9 +18,19 @@ public class PogodaAdapter extends RecyclerView.Adapter<PogodaAdapter>.ViewHolde
     }
     @NonNull
     @Override
-    public ViewHolder OnCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent,false);
         return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 7;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
